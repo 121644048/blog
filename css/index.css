@@ -387,13 +387,6 @@ template {
   animation: titleScale 1s;
 }
 canvas:not(#ribbon-canvas),
-#web_bg {
-  -webkit-animation: to_show 4s;
-  -moz-animation: to_show 4s;
-  -o-animation: to_show 4s;
-  -ms-animation: to_show 4s;
-  animation: to_show 4s;
-}
 #ribbon-canvas {
   -webkit-animation: ribbon_to_show 4s;
   -moz-animation: ribbon_to_show 4s;
@@ -3267,10 +3260,6 @@ figure.highlight pre .javascript .function {
 }
 #footer {
   position: relative;
-  background-color: #49b1f5;
-  background-attachment: scroll;
-  background-position: bottom;
-  background-size: cover;
 }
 #footer > * {
   position: relative;
@@ -3366,22 +3355,11 @@ figure.highlight pre .javascript .function {
 #page-header {
   position: relative;
   width: 100%;
-  background-color: #49b1f5;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
   -ms-transition: all 0.5s;
   transition: all 0.5s;
-}
-#page-header:not(.not-top-img):before {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: var(--mark-bg);
-  content: '';
 }
 #page-header.full_page {
   height: 100vh;
@@ -4994,6 +4972,221 @@ figure.highlight pre .javascript .function {
     display: none;
   }
 }
+#web-bg {
+  position: fixed;
+  z-index: -999;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+#web-bg #default-bg,
+#web-bg #dark-bg,
+#web-bg #mobile-bg,
+#web-bg #mobile-dark-bg {
+  position: fixed;
+  background-attachment: local !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  width: 100%;
+  height: 100%;
+}
+#web-bg #dark-bg::before,
+#web-bg #mobile-dark-bg::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  content: '';
+}
+@media screen and (min-width: 900px) {
+  #web-bg #default-bg {
+    -webkit-animation: web-bg-show 0.3s linear 1 forwards;
+    -moz-animation: web-bg-show 0.3s linear 1 forwards;
+    -o-animation: web-bg-show 0.3s linear 1 forwards;
+    -ms-animation: web-bg-show 0.3s linear 1 forwards;
+    animation: web-bg-show 0.3s linear 1 forwards;
+  }
+  #web-bg #dark-bg {
+    -webkit-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -moz-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -o-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -ms-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+  }
+  #web-bg #mobile-bg {
+    display: none;
+  }
+  #web-bg #mobile-dark-bg {
+    display: none;
+  }
+  [data-theme="dark"] #web-bg #default-bg {
+    -webkit-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -moz-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -o-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -ms-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+  }
+  [data-theme="dark"] #web-bg #dark-bg {
+    -webkit-animation: web-bg-show 0.3s linear 1 forwards;
+    -moz-animation: web-bg-show 0.3s linear 1 forwards;
+    -o-animation: web-bg-show 0.3s linear 1 forwards;
+    -ms-animation: web-bg-show 0.3s linear 1 forwards;
+    animation: web-bg-show 0.3s linear 1 forwards;
+  }
+}
+@media screen and (max-width: 900px) {
+  #web-bg #default-bg {
+    display: none;
+  }
+  #web-bg #dark-bg {
+    display: none;
+  }
+  #web-bg #mobile-bg {
+    -webkit-animation: web-bg-show 0.3s linear 1 forwards;
+    -moz-animation: web-bg-show 0.3s linear 1 forwards;
+    -o-animation: web-bg-show 0.3s linear 1 forwards;
+    -ms-animation: web-bg-show 0.3s linear 1 forwards;
+    animation: web-bg-show 0.3s linear 1 forwards;
+  }
+  #web-bg #mobile-dark-bg {
+    -webkit-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -moz-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -o-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -ms-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+  }
+  [data-theme="dark"] #web-bg #mobile-bg {
+    -webkit-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -moz-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -o-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    -ms-animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+    animation: web-bg-hidden 0.3s linear 1 0.1s forwards;
+  }
+  [data-theme="dark"] #web-bg #mobile-dark-bg {
+    -webkit-animation: web-bg-show 0.3s linear 1 forwards;
+    -moz-animation: web-bg-show 0.3s linear 1 forwards;
+    -o-animation: web-bg-show 0.3s linear 1 forwards;
+    -ms-animation: web-bg-show 0.3s linear 1 forwards;
+    animation: web-bg-show 0.3s linear 1 forwards;
+  }
+}
+@-moz-keyframes web-bg-show {
+  0% {
+    z-index: -998;
+    display: block;
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    z-index: -998;
+    display: block;
+    clip-path: inset(0 0 0 0);
+  }
+}
+@-webkit-keyframes web-bg-show {
+  0% {
+    z-index: -998;
+    display: block;
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    z-index: -998;
+    display: block;
+    clip-path: inset(0 0 0 0);
+  }
+}
+@-o-keyframes web-bg-show {
+  0% {
+    z-index: -998;
+    display: block;
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    z-index: -998;
+    display: block;
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes web-bg-show {
+  0% {
+    z-index: -998;
+    display: block;
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    z-index: -998;
+    display: block;
+    clip-path: inset(0 0 0 0);
+  }
+}
+@-moz-keyframes web-bg-hidden {
+  0% {
+    z-index: -999;
+    display: block;
+    clip-path: inset(0 0 0 0);
+  }
+  99% {
+    z-index: -999;
+    display: block;
+    clip-path: inset(0 0 0 100%);
+  }
+  100% {
+    z-index: -999;
+    display: none;
+    clip-path: inset(0 0 0 100%);
+  }
+}
+@-webkit-keyframes web-bg-hidden {
+  0% {
+    z-index: -999;
+    display: block;
+    clip-path: inset(0 0 0 0);
+  }
+  99% {
+    z-index: -999;
+    display: block;
+    clip-path: inset(0 0 0 100%);
+  }
+  100% {
+    z-index: -999;
+    display: none;
+    clip-path: inset(0 0 0 100%);
+  }
+}
+@-o-keyframes web-bg-hidden {
+  0% {
+    z-index: -999;
+    display: block;
+    clip-path: inset(0 0 0 0);
+  }
+  99% {
+    z-index: -999;
+    display: block;
+    clip-path: inset(0 0 0 100%);
+  }
+  100% {
+    z-index: -999;
+    display: none;
+    clip-path: inset(0 0 0 100%);
+  }
+}
+@keyframes web-bg-hidden {
+  0% {
+    z-index: -999;
+    display: block;
+    clip-path: inset(0 0 0 0);
+  }
+  99% {
+    z-index: -999;
+    display: block;
+    clip-path: inset(0 0 0 100%);
+  }
+  100% {
+    z-index: -999;
+    display: none;
+    clip-path: inset(0 0 0 100%);
+  }
+}
 .container .btn-center {
   margin: 0 0 20px;
   text-align: center;
@@ -6352,13 +6545,6 @@ blockquote.pullquote.right {
   --zoom-bg: #121212;
   --mark-bg: rgba(0,0,0,0.6);
 }
-[data-theme='dark'] #web_bg:before {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  content: '';
-}
 [data-theme='dark'] .container code {
   background: #2c2c2c;
 }
@@ -6672,6 +6858,78 @@ blockquote.pullquote.right {
 .read-mode .container .note .note-icon {
   color: var(--font-color);
 }
+/*字体设置*/
+@font-face {
+  font-family: 'shou';
+  src: url('/fonts/shou.ttf');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Caveat-Regular';
+  src: url('/fonts/Caveat-Regular.ttf');
+  font-display: swap;
+}
+h1#site-title {
+    font-family:'Caveat-Regular', 'shou';
+}
+span#subtitle {
+    font-family:shou!important
+}
+a#site-name {
+    font-family:Caveat-Regular!important
+}
+div#menus {
+    font-family:shou!important
+}
+
+/*apyer缩进*/
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  left: -66px !important;
+  /* 默认情况下缩进左侧66px，只留一点箭头部分 */
+}
+
+.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+  left: 0 !important;
+  /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
+}
+
+
+div#post{
+  background: rgba(255, 255, 255, 0.9);
+}
+div#page{
+  background: rgba(255, 255, 255, 0.9);
+}
+div#archive{
+  background: rgba(255, 255, 255, 0.9);
+}
+div#tag{
+  background: rgba(255, 255, 255, 0.9);
+}
+div#category{
+  background: rgba(255, 255, 255, 0.9);
+}
+#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+#aside-content>.card-widget {
+    background: rgba(255, 255, 255, 0.9);
+}
+#aside-content>.sticky_layout>.card-widget {
+    background: rgba(255, 255, 255, 0.9);
+}
+#clock {
+  background: rgba(255, 255, 255, 0);
+}
+
+
+}
+
+
+
+
+
 .search-dialog {
   position: fixed;
   top: 10%;
