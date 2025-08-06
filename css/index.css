@@ -6875,12 +6875,29 @@ h1#site-title {
 span#subtitle {
     font-family:shou!important
 }
-a#site-name {
+span.site-name {
     font-family:Caveat-Regular!important
 }
 div#menus {
     font-family:shou!important
 }
+
+/*@import url('https://cdn.iocdn.cc/css2?family=Long+Cang&display=swap');*/
+/*@import url('https://cdn.iocdn.cc/css2?family=Meow+Script&display=swap');*/
+/*div#menus {*/
+/*    font-family: "Long Cang", cursive;*/
+/*}*/
+/*span#subtitle {*/
+/*    font-family: "Long Cang", cursive;*/
+/*}*/
+/*span.site-name {*/
+/*    font-family: "Meow Script", cursive;*/
+/*}*/
+/*@import url('https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap');*/
+
+/*h1#site-title {*/
+/*    font-family: 'Zhi Mang Xing', cursive;*/
+/*}*/
 
 /*apyer缩进*/
 .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
@@ -6909,7 +6926,7 @@ div#tag{
 div#category{
   background: rgba(255, 255, 255, 0.9);
 }
-#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {
+#recent-posts>.recent-post-items>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {
     background: rgba(255, 255, 255, 0.9);
 }
 
@@ -6924,7 +6941,46 @@ div#category{
 }
 
 
-}
+[data-theme="dark"]
+  #aside-content .card-widget{
+      background: rgba(0, 0, 0, 0.5)!important;
+    }
+[data-theme="dark"]
+  div#post{
+    background: rgba(0, 0, 0, 0.5)!important;
+    }
+[data-theme="dark"]
+  div#page{
+    background: rgba(0, 0, 0, 0.5)!important;
+    }
+[data-theme="dark"]
+  div#archive{
+    background: rgba(0, 0, 0, 0.5)!important;
+    }
+[data-theme="dark"]
+  div#tag{
+    background: rgba(0, 0, 0, 0.5)!important;
+    }
+[data-theme="dark"]
+  div#category{
+    background: rgba(0, 0, 0, 0.5)!important;
+    }
+[data-theme="dark"]
+#recent-posts>.recent-post-items>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post{
+    background: rgba(0, 0, 0, 0.5)!important;
+    }
+[data-theme="dark"]
+  #aside-content>.card-widget{
+    background: rgba(0, 0, 0, 0.5)!important;
+    }
+[data-theme="dark"]
+  #aside-content>.sticky_layout>.card-widget{
+    background: rgba(0, 0, 0, 0.5)!important;
+    }
+[data-theme="dark"]
+  #clock{
+    background: rgba(0, 0, 0, 0.5)!important;
+    }
 
 
 
