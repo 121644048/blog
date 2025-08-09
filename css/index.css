@@ -6985,6 +6985,84 @@ div#category{
 
 
 
+/*!* 全局平滑滚动 *!*/
+/*html {*/
+/*  scroll-behavior: smooth; !* 核心属性，实现平滑滚动 *!*/
+/*  scrollbar-width: thin; !* 滚动条变细（可选） *!*/
+/*  scrollbar-color: #ccc #f5f5f5; !* 滚动条颜色（可选） *!*/
+/*}*/
+
+/*!* 优化滚动手感（可选，调整加速度曲线） *!*/
+/*html {*/
+/*  scroll-behavior: smooth;*/
+/*  scroll-timing-function: cubic-bezier(0.4, 0, 0.2, 1); !* 更自然的加速/减速曲线 *!*/
+/*}*/
+
+/*!* 滚动条样式美化（可选，适配 Butterfly 主题风格） *!*/
+/*::-webkit-scrollbar {*/
+/*  width: 6px; !* 宽度 *!*/
+/*  height: 6px;*/
+/*}*/
+/*::-webkit-scrollbar-track {*/
+/*  background: #f5f5f5; !* 轨道背景 *!*/
+/*  border-radius: 3px;*/
+/*}*/
+/*::-webkit-scrollbar-thumb {*/
+/*  background: #ccc; !* 滑块颜色 *!*/
+/*  border-radius: 3px;*/
+/*}*/
+/*::-webkit-scrollbar-thumb:hover {*/
+/*  background: #aaa; !*  hover 时加深 *!*/
+/*}*/
+
+
+/*!* 图片模糊到清晰的过渡效果 *!*/
+/*.progressive-img {*/
+/*  position: relative;*/
+/*  overflow: hidden;*/
+/*}*/
+
+/*.progressive-img img {*/
+/*  display: block;*/
+/*  width: 100%;*/
+/*  height: auto;*/
+/*  transition: filter 0.8s ease-in-out;*/
+/*  filter: blur(10px); !* 初始模糊效果 *!*/
+/*  opacity: 0;*/
+/*  transform: scale(1.05); !* 稍微放大，避免过渡时出现边缘 *!*/
+/*}*/
+
+/*.progressive-img img.loaded {*/
+/*  filter: blur(0); !* 加载完成后清晰显示 *!*/
+/*  opacity: 1;*/
+/*  transform: scale(1);*/
+/*}*/
+
+/*!* 为图片添加加载指示器（可选） *!*/
+/*.progressive-img::after {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  top: 50%;*/
+/*  left: 50%;*/
+/*  width: 30px;*/
+/*  height: 30px;*/
+/*  margin: -15px 0 0 -15px;*/
+/*  border: 3px solid #f3f3f3;*/
+/*  border-top: 3px solid #3498db;*/
+/*  border-radius: 50%;*/
+/*  animation: spin 1s linear infinite;*/
+/*  opacity: 0;*/
+/*  transition: opacity 0.3s;*/
+/*}*/
+
+/*.progressive-img:not(.loaded)::after {*/
+/*  opacity: 1;*/
+/*}*/
+
+/*@keyframes spin {*/
+/*  0% { transform: rotate(0deg); }*/
+/*  100% { transform: rotate(360deg); }*/
+/*}*/
 
 .search-dialog {
   position: fixed;
