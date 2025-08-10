@@ -824,6 +824,26 @@ document.addEventListener('DOMContentLoaded', () => {
       ele.hidden = false
     }
   }
+/**
+   * 自己写的，实现功能切换类别表
+   */
+  const setCategoryBarActive = () => {
+    const categoryBar = document.querySelector("#category-bar");
+    const currentPath = decodeURIComponent(window.location.pathname);
+    const isHomePage = currentPath === GLOBAL_CONFIG.root;
+
+    if (categoryBar) {
+        const categoryItems = categoryBar.querySelectorAll(".category-bar-item");
+        categoryItems.forEach(item => item.classList.remove("select"));
+
+        const activeItemId = isHomePage ? "category-bar-home" : currentPath.split("/").slice(-2, -1)[0];
+        const activeItem = document.getElementById(activeItemId);
+
+        if (activeItem) {
+            activeItem.classList.add("select");
+        }
+    }
+};
 
   const lazyloadImg = () => {
     window.lazyLoadInstance = new LazyLoad({
@@ -893,6 +913,9 @@ document.addEventListener('DOMContentLoaded', () => {
     tabsFn()
   }
 
+
+
+
   const refreshFn = () => {
     initAdjust()
     justifiedIndexPostUI()
@@ -905,6 +928,7 @@ document.addEventListener('DOMContentLoaded', () => {
       GLOBAL_CONFIG.runtime && addRuntime()
       addLastPushDate()
       toggleCardCategory()
+      setCategoryBarActive()
     }
 
     GLOBAL_CONFIG_SITE.pageType === 'home' && scrollDownInIndex()
