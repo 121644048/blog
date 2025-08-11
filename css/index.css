@@ -1490,6 +1490,12 @@ img:not([src]) {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
 }
+img[data-lazy-src]:not(.loaded) {
+  filter: blur(8px) brightness(1);
+}
+img[data-lazy-src].error {
+  filter: none;
+}
 .img-alt {
   margin: -10px 0 10px;
   color: #858585;
@@ -6768,7 +6774,7 @@ blockquote.pullquote.right {
   filter: brightness(0.8);
 }
 [data-theme='dark'] img {
-  filter: brightness(0.8);
+  filter: blur(0) brightness(0.8);
 }
 [data-theme='dark'] #aside-content .aside-list > .aside-list-item:not(:last-child) {
   border-bottom: 1px dashed rgba(255,255,255,0.1);
@@ -7037,12 +7043,12 @@ blockquote.pullquote.right {
 /*字体设置*/
 @font-face {
   font-family: 'shou';
-  src: url('/fonts/shou.ttf');
+  src: url('/fonts/shou.woff2');
   font-display: swap;
 }
 @font-face {
   font-family: 'Caveat-Regular';
-  src: url('/fonts/Caveat-Regular.ttf');
+  src: url('/fonts/Caveat-Regular.woff2');
   font-display: swap;
 }
 h1#site-title {
