@@ -1,0 +1,865 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>哔哔 | Sun Boy's Blog</title><meta name="author" content="Sun Boy"><meta name="copyright" content="Sun Boy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="快速哔哔 后台哔哔   ipseak加载中       &#x2F;* 强制父容器为block（最高优先级） *&#x2F;   #ispeak .speak-content {     display: block !important;      width: 100% !important;     max-width: 1200px !important;     margin: 0 auto !impor">
+<meta property="og:type" content="website">
+<meta property="og:title" content="哔哔">
+<meta property="og:url" content="https://www.sunboy.ltd/bibi/index.html">
+<meta property="og:site_name" content="Sun Boy&#39;s Blog">
+<meta property="og:description" content="快速哔哔 后台哔哔   ipseak加载中       &#x2F;* 强制父容器为block（最高优先级） *&#x2F;   #ispeak .speak-content {     display: block !important;      width: 100% !important;     max-width: 1200px !important;     margin: 0 auto !impor">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.sunboy.ltd/img/about.jpg">
+<meta property="article:published_time" content="2021-03-14T12:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-27T04:00:00.000Z">
+<meta property="article:author" content="Sun Boy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.sunboy.ltd/img/about.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.sunboy.ltd/bibi/index.html"><link rel="preconnect" href="https://cdn.jsdmirror.com"/><link rel="stylesheet" href="/css/index.css?v=5.4.3"><link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fancyapps/ui@6.0.17/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdmirror.com/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '哔哔',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="https://live2dd.sunboy.ltd/css/left.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="all" onload="this.media=&quot;all&quot;"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sun Boy's Blog" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Sun Boy's Blog" type="application/rss+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="svg"></div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+    const svg= document.querySelector(".svg")
+    svg.innerHTML=`<div class="loading"><svg t="1757083249298" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1389" width="128" height="128"><path class="path" d="M114.294312 490.542655l236.669689 143.235961a35.590833 35.590833 0 1 1-36.899777 60.959431L17.370064 515.163283a35.590833 35.590833 0 0 1 4.799464-63.390327l926.047296-386.699699a35.590833 35.590833 0 0 1 48.617951 39.517667l-162.184497 854.803299a35.590833 35.590833 0 0 1-54.040722 23.436346L479.863901 792.223271a35.653164 35.653164 0 0 1 38.084061-60.211462l256.490855 162.683142L914.620574 156.32541 114.294312 490.480324z" p-id="1390" fill="rgba(81, 81, 81, 0)"></path><path class="path" d="M392.039937 694.613385v293.764617a35.590833 35.590833 0 1 1-71.243997 0v-310.095262c0-10.409228 4.550142-20.31981 12.466141-27.113857L766.273494 280.488176a35.590833 35.590833 0 1 1 46.311715 54.165383l-420.482942 359.959826z" p-id="1391" fill="rgba(81, 81, 81, 0)"></path></svg></div>`
+    let plist = document.querySelectorAll(".path")
+    plist.forEach(p => {
+       const length = p.getTotalLength()
+       p.style.setProperty("--length", length)
+     })
+
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web-bg"><div id="default-bg" style="background:url(https://image.sunboy.ltd/ziyan.jpg);"></div><div id="dark-bg" style="background:url(https://image.sunboy.ltd/ziyan.jpg);"></div><div id="mobile-bg" style="background:url(https://image.sunboy.ltd/ziyan.jpg);"></div><div id="mobile-dark-bg" style="background:url(https://image.sunboy.ltd/ziyan.jpg);"></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/about.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">35</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-home"></i><span> 站点</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://picprose.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 封面制作</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://icon.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 图标制作</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://openlist.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> openlist</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://mm.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> moments</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cfbed.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> CFTG图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://biliapi1.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 链接转换</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://bing.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 每日一图</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 休闲</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw far fa-grin-hearts"></i><span> 自言</span></a></li><li><a class="site-page child" href="/bibi/"><i class="fa-fw far fa-meh-rolling-eyes"></i><span> 哔哔</span></a></li><li><a class="site-page child" href="/album/"><i class="fa-fw far fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user-friends"></i><span> 朋友</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i><span> 圈子</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw far fa-user"></i><span> 本站</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-laptop"></i><span> 装备</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Sun Boy's Blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-home"></i><span> 站点</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://picprose.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 封面制作</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://icon.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 图标制作</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://openlist.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> openlist</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://mm.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> moments</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cfbed.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> CFTG图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://biliapi1.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 链接转换</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://bing.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 每日一图</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 休闲</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/artitalk/"><i class="fa-fw far fa-grin-hearts"></i><span> 自言</span></a></li><li><a class="site-page child" href="/bibi/"><i class="fa-fw far fa-meh-rolling-eyes"></i><span> 哔哔</span></a></li><li><a class="site-page child" href="/album/"><i class="fa-fw far fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user-friends"></i><span> 朋友</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i><span> 圈子</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-heart"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw far fa-user"></i><span> 本站</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-laptop"></i><span> 装备</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">哔哔</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><div class="btn-center">
+<a class="btn-beautify blue larger" target="_blank" rel="noopener" href="https://bibibiu.sunboy.ltd/" title="快速哔哔"><i class="far fa-meh-rolling-eyes"></i><span>快速哔哔</span></a>
+<a class="btn-beautify blue larger" target="_blank" rel="noopener" href="https://bibibi.sunboy.ltd/" title="后台哔哔"><i class="far fa-meh-rolling-eyes"></i><span>后台哔哔</span></a>
+</div>
+
+<div id="tip" style="text-align:center;">ipseak加载中</div>
+<div id="ispeak"></div>
+<link
+  rel="stylesheet"
+  href="https://image.sunboy.ltd/cdn/bibi/atom-one-dark.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://image.sunboy.ltd/cdn/bibi/style3.css"
+/>
+<style>
+  /* 强制父容器为block（最高优先级） */
+  #ispeak .speak-content {
+    display: block !important; 
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 20px 0 !important;
+  }
+
+
+  /* 三列瀑布流容器（强制等宽） */
+  #ispeak .speak-content .waterfall-column {
+    width: calc(33.333% - 20px) !important;
+    margin: 0 10px !important;
+    float: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  /* 单条内容块（强制覆盖所有样式） */
+  #ispeak .speak-content .waterfall-column .speak-body-card {
+    background: #fff !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    margin-top: 0 !important;
+    width: 100% !important;
+  }
+
+  /* 核心修改：图片与容器同宽（直接定位内容容器内的img，加强优先级） */
+  #ispeak .speak-body-card .speak-body-card-content img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: 8px !important;
+  }
+
+
+  /* 视频容器：带圆角的16:9比例容器 */
+  .speak-body-card-content .bilibili-video-container {
+    position: relative;
+    width: 100% !important; /* 与容器同宽 */
+    padding-top: 56.25% !important; /* 16:9比例（9/16=56.25%） */
+    overflow: hidden !important; /* 关键：隐藏超出圆角的内容 */
+    margin: 10px 0; /* 上下间距 */
+    border-radius: 8px; /* 圆角大小，可根据需要调整 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 可选：添加轻微阴影增强视觉效果 */
+  }
+  
+  /* 视频iframe：填充容器 */
+  .speak-body-card-content .bilibili-video-container iframe {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important; /* 移除默认边框 */
+  }
+
+  /* 确保父容器可定位 */
+  #ispeak .speak-content {
+    position: relative !important; /* 作为加载动画的定位父级 */
+    min-height: 200px; /* 避免内容过短时加载动画被压缩 */
+  }
+  
+  /* 加载动画容器居中 */
+  #ispeak .speak-content .loading-container {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; /* 精确居中 */
+    margin: 0 !important; /* 清除可能的默认外边距 */
+    z-index: 10 !important; /* 确保在其他内容上方显示 */
+  }
+  
+  /* 加载图片自身居中（如果需要） */
+  #ispeak .speak-content .loading-container img {
+    margin: 0 auto !important; /* 图片在容器内水平居中 */
+  }
+
+  /* 悬停动画（保留交互） */
+  #ispeak .speak-content .waterfall-column .speak-body-card:hover {
+    box-shadow: 0 5px 10px 8px #07111b29 !important;
+    transform: translateY(-3px) !important;
+  }
+
+  /* 清除浮动（防止容器塌陷） */
+  #ispeak .speak-content::after {
+    content: "" !important;
+    display: table !important;
+    clear: both !important;
+  }
+
+  /* 响应式：小屏幕单列 */
+  @media (max-width: 768px) {
+    #ispeak .speak-content .waterfall-column {
+      width: 100% !important;
+      margin: 0 !important;
+      float: none !important;
+    }
+    #ispeak .speak-content .waterfall-column .speak-body-card {
+      margin-top: 20px !important;
+    }
+  }
+
+</style>
+
+
+<!-- 移除静态脚本引入，改为动态加载 -->
+<script src="https://cdn.jsdmirror.com/npm/twikoo@1.6.44/dist/twikoo.min.js"></script>
+
+<script>
+  // 设置referrer元标签
+  var head = document.getElementsByTagName('head')[0];
+  var meta = document.createElement('meta');
+  meta.name = 'referrer';
+  meta.content = 'no-referrer';
+  head.appendChild(meta);
+  
+  // 必要脚本URL列表
+  const SCRIPT_URLS = [
+    "https://image.sunboy.ltd/cdn/bibi/highlight.min.js",
+    "https://image.sunboy.ltd/cdn/bibi/marked.min.js",
+    "https://image.sunboy.ltd/cdn/bibi/ispeak.umd.js"
+  ];
+  
+  // 检查所有必要脚本是否已加载
+  function checkAllScriptsLoaded() {
+    return typeof window.hljs !== 'undefined' && 
+           typeof window.marked !== 'undefined' && 
+           typeof window.ispeak !== 'undefined';
+  }
+  
+  // 动态加载单个脚本
+  function loadScript(url) {
+    return new Promise((resolve, reject) => {
+      let script = document.querySelector(`script[src="${url}"]`);
+      if (script) {
+        resolve();
+        return;
+      }
+      script = document.createElement('script');
+      script.src = url;
+      script.type = 'text/javascript';
+      script.onload = resolve;
+      script.onerror = () => reject(new Error(`Failed to load script: ${url}`));
+      document.head.appendChild(script);
+    });
+  }
+
+  // 检查当前是否为移动设备（小屏幕）
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+  
+  // 瀑布流核心逻辑：按时间排序后分配到列（根据屏幕尺寸自动调整列数）
+  function initWaterfall() {
+    const waterfallContainer = document.querySelector('#ispeak .speak-content');
+    const itemElements = document.querySelectorAll('.speak-body-card');
+    
+    if (!waterfallContainer || itemElements.length === 0) {
+      console.log('瀑布流：未找到容器 #ispeak .speak-content 或内容块 .speak-body-card');
+      return;
+    }
+
+    // 将NodeList转换为数组以便排序
+    const itemArray = Array.from(itemElements);
+    
+    // console.log('排序前的说说数量:', itemArray.length);
+    
+    // 按时间排序（从新到旧）- 增强版排序逻辑
+    itemArray.sort((a, b) => {
+      // 尝试多种方式获取时间
+      let timeA = '';
+      let timeB = '';
+      
+      // 方法1: 从data-time属性获取
+      timeA = a.getAttribute('data-time') || '';
+      timeB = b.getAttribute('data-time') || '';
+      
+      // 方法2: 查找时间元素（尝试不同的选择器）
+      if (!timeA) {
+        const timeElA = a.querySelector('.speak-body-card-time') || 
+                       a.querySelector('.time') || 
+                       a.querySelector('.speak-time') ||
+                       a.querySelector('.date');
+        if (timeElA) timeA = timeElA.textContent.trim();
+      }
+      
+      if (!timeB) {
+        const timeElB = b.querySelector('.speak-body-card-time') || 
+                       b.querySelector('.time') || 
+                       b.querySelector('.speak-time') ||
+                       b.querySelector('.date');
+        if (timeElB) timeB = timeElB.textContent.trim();
+      }
+      
+      // 方法3: 查找所有可能包含时间的元素（扩展正则匹配）
+      if (!timeA) {
+        const allElementsA = a.querySelectorAll('*');
+        for (let el of allElementsA) {
+          const text = el.textContent.trim();
+          // 匹配更多日期格式：YYYY-MM-DD, YYYY/MM/DD, MM月DD日, 今天, 昨天, 刚刚等
+          if (text.match(/(\d{4}[-/]\d{1,2}[-/]\d{1,2})|(\d{1,2}月\d{1,2}日)|今天|昨天|刚刚/)) {
+            timeA = text;
+            break;
+          }
+        }
+      }
+      
+      if (!timeB) {
+        const allElementsB = b.querySelectorAll('*');
+        for (let el of allElementsB) {
+          const text = el.textContent.trim();
+          if (text.match(/(\d{4}[-/]\d{1,2}[-/]\d{1,2})|(\d{1,2}月\d{1,2}日)|今天|昨天|刚刚/)) {
+            timeB = text;
+            break;
+          }
+        }
+      }
+      
+      // console.log('提取到的时间:', { timeA, timeB });
+      
+      // 转换为日期对象进行比较
+      const dateA = new Date(timeA);
+      const dateB = new Date(timeB);
+      
+      // console.log('解析后的日期:', { dateA, dateB });
+      
+      // 如果日期有效，则按日期倒序排序
+      if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+        // console.log('按日期排序:', dateB - dateA);
+        return dateB - dateA;
+      }
+      
+      // 处理相对时间词（今天、昨天、刚刚等）
+      const relativeTimeValues = {
+        '刚刚': 0,
+        '今天': 1,
+        '昨天': 2
+      };
+      
+      const valA = relativeTimeValues[timeA] || 999;
+      const valB = relativeTimeValues[timeB] || 999;
+      
+      if (valA < 999 && valB < 999) {
+        // console.log('按相对时间排序:', valA - valB);
+        return valA - valB; // 刚刚 < 今天 < 昨天
+      }
+      
+      // 如果日期无效，则尝试其他排序方法
+      // 1. 检查是否有ID或key属性，按ID/key排序
+      const idA = a.getAttribute('data-id') || a.id || '';
+      const idB = b.getAttribute('data-id') || b.id || '';
+      if (idA && idB) {
+        // console.log('按ID排序:', idB.localeCompare(idA));
+        return idB.localeCompare(idA); // 假设ID越大越新
+      }
+      
+      // 2. 检查是否有创建时间戳属性
+      const createTimeA = parseInt(a.getAttribute('data-create-time') || '0');
+      const createTimeB = parseInt(b.getAttribute('data-create-time') || '0');
+      if (createTimeA > 0 && createTimeB > 0) {
+        // console.log('按时间戳排序:', createTimeB - createTimeA);
+        return createTimeB - createTimeA;
+      }
+      
+      // 如果所有方法都失败，则保持原有顺序
+      // console.log('无法排序，保持原顺序');
+      return 0;
+    });
+    
+    // console.log('排序完成，开始分配到瀑布流列');
+
+    // 根据屏幕尺寸决定列数
+    const columnCount = isMobile() ? 1 : 3;
+    // console.log('当前屏幕宽度:', window.innerWidth, 'px, 使用', columnCount, '列布局');
+    
+    waterfallContainer.innerHTML = ''; // 清空原有布局
+    const columns = [];
+    
+    // 创建相应数量的瀑布流列容器
+    for (let i = 0; i < columnCount; i++) {
+      const column = document.createElement('div');
+      column.className = 'waterfall-column';
+      waterfallContainer.appendChild(column);
+      columns.push({ dom: column, height: 0 });
+    }
+
+    // 分配排序后的内容块到最矮列
+    itemArray.forEach(item => {
+      let shortestColumn = columns[0];
+      columns.forEach(column => {
+        if (column.height < shortestColumn.height) shortestColumn = column;
+      });
+      shortestColumn.dom.appendChild(item);
+      shortestColumn.height += item.offsetHeight + 20; // +20对应列内gap
+    });
+    // console.log('瀑布流初始化完成（已按时间排序）');
+  }
+  
+  // 监听窗口大小变化，重新执行瀑布流布局
+  function handleResize() {
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function() {
+        // console.log('窗口大小变化，重新执行瀑布流布局');
+        const waterfallContainer = document.querySelector('#ispeak .speak-content');
+        if (waterfallContainer) {
+          waitImagesLoaded(waterfallContainer, initWaterfall);
+        }
+      }, 300); // 防抖，避免频繁触发
+    });
+  }
+
+  // 等待图片加载后再执行瀑布流（避免高度计算错误）
+  function waitImagesLoaded(container, callback) {
+    const images = container.querySelectorAll('img');
+    if (images.length === 0) {
+      callback();
+      return;
+    }
+    let loadedCount = 0;
+    images.forEach(img => {
+      if (img.complete) loadedCount++;
+      else {
+        img.onload = img.onerror = () => {
+          loadedCount++;
+          if (loadedCount === images.length) callback();
+        };
+      }
+      if (loadedCount === images.length) callback();
+    });
+  }
+
+  // 监听内容变化后执行瀑布流（确保内容完全渲染）
+  function observeContentChanges() {
+    const targetNode = document.getElementById('ispeak');
+    if (!targetNode) return;
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach(() => {
+        const waterfallContainer = document.querySelector('#ispeak .speak-content');
+        if (waterfallContainer) {
+          waitImagesLoaded(waterfallContainer, initWaterfall);
+          observer.disconnect(); // 只执行一次
+        }
+      });
+    });
+
+    observer.observe(targetNode, { childList: true, subtree: true });
+  }
+  
+  // 移动端优化：增强内容块在单列布局中的显示效果
+  function optimizeMobileDisplay() {
+    if (isMobile()) {
+      const cards = document.querySelectorAll('.speak-body-card');
+      cards.forEach(card => {
+        // 确保在单列模式下每个卡片宽度适应屏幕
+        card.style.width = '100%';
+        card.style.maxWidth = '100%';
+      });
+    }
+  }
+  
+  // 重新执行瀑布流的统一入口函数
+  function refreshWaterfall() {
+    const waterfallContainer = document.querySelector('#ispeak .speak-content');
+    if (waterfallContainer) {
+      waitImagesLoaded(waterfallContainer, function() {
+        initWaterfall();
+        // 移动端显示优化
+        optimizeMobileDisplay();
+      });
+    }
+  }
+  
+  // 初始化ipseak
+  function initIpeak() {
+    const container = document.getElementById('ispeak');
+    if (container) container.innerHTML = '';
+    const tip = document.getElementById('tip');
+    if (tip) {
+      tip.style.display = 'block';
+      tip.innerHTML = 'ipseak加载中';
+    }
+    if (!checkAllScriptsLoaded()) {
+      console.error('ipseak依赖未完全加载');
+      if (tip) tip.innerHTML = 'ipseak依赖加载失败！';
+      return false;
+    }
+    try {
+      ispeak
+        .init({
+          el: '#ispeak',
+          api: 'https://bibiapi.sunboy.ltd/',
+          author: '68aa7f5488ac4d1fc3223aa5',
+          pageSize: 30,
+          loading_img: 'https://bu.dusays.com/2022/05/01/626e88f349943.gif',
+          comment: function (speak) {
+            const { _id } = speak;
+            twikoo.init({
+              el: '.ispeak-comment',
+              path: '/bibi/index.html?q=' + _id,
+              envId: 'https://twikoo.sunboy.ltd',
+            });
+          }
+        })
+        .then(function () {
+          console.log('ispeak 加载完成');
+          if (tip) tip.style.display = 'none';
+          
+          // 使用统一的瀑布流刷新函数
+          refreshWaterfall();
+          
+          // 启动内容变化监听，确保瀑布流在内容渲染后执行
+          observeContentChanges();
+          
+          // 确保handleResize函数在适当的地方被调用
+          handleResize();
+          
+          // 兼容PJAX：页面切换后重新执行瀑布流
+          document.addEventListener('pjax:success', () => {
+            refreshWaterfall();
+          });
+        })
+        .catch(function (error) {
+          console.error('ispeak 初始化失败:', error);
+          if (tip) tip.innerHTML = 'ipseak初始化失败！';
+        });
+      return true;
+    } catch (error) {
+      console.error('ispeak 加载出错:', error);
+      if (tip) tip.innerHTML = 'ipseak加载出错！';
+      return false;
+    }
+  }
+  
+  // 加载所有必要脚本并初始化
+  function loadScriptsAndInit() {
+    if (checkAllScriptsLoaded()) return initIpeak();
+    Promise.all(SCRIPT_URLS.map(url => loadScript(url)))
+      .then(() => {
+        if (checkAllScriptsLoaded()) initIpeak();
+        else startRetryMechanism();
+      })
+      .catch(error => {
+        console.error('脚本加载失败:', error);
+        document.getElementById('tip').innerHTML = 'ipseak依赖加载失败！';
+        startRetryMechanism();
+      });
+  }
+  
+  // 重试机制
+  function startRetryMechanism() {
+    let retryCount = 0;
+    const maxRetries = 10;
+    const retryInterval = 1000;
+    const retryIntervalId = setInterval(() => {
+      retryCount++;
+      // console.log(`尝试重新加载ipseak依赖...(${retryCount}/${maxRetries})`);
+      if (checkAllScriptsLoaded()) {
+        clearInterval(retryIntervalId);
+        initIpeak();
+        return;
+      }
+      if (retryCount >= maxRetries) {
+        clearInterval(retryIntervalId);
+        console.error(`超过最大重试次数，ipseak依赖仍未加载成功`);
+        document.getElementById('tip').innerHTML = 'ipseak依赖加载失败！';
+      } else {
+        SCRIPT_URLS.forEach(url => {
+          if (!document.querySelector(`script[src="${url}"]`)) loadScript(url);
+        });
+      }
+    }, retryInterval);
+  }
+  
+  // 页面事件监听：确保各种加载场景下触发
+  document.addEventListener('DOMContentLoaded', loadScriptsAndInit);
+  document.addEventListener('page:loaded', loadScriptsAndInit);
+  document.addEventListener('pjax:complete', loadScriptsAndInit);
+</script>
+
+</div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2021 - 2025 By Sun Boy</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><img class="icp-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://beian.mps.gov.cn/img/logo01.dd7ff50e.png"><span>备案号：陇ICP备2021001091号-1 | 甘公网安备 62102702000139号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.4.3"></script><script src="/js/main.js?v=5.4.3"></script><script defer src="https://cdn.jsdmirror.com/npm/@fancyapps/ui@6.0.17/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdmirror.com/npm/instant.page@5.2.0/instantpage.min.js" type="module" defer></script><script defer src="https://cdn.jsdmirror.com/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdmirror.com/npm/katex@0.16.22/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://cdn.jsdmirror.com/npm/katex@0.16.22/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script>window.newestComments = {
+  changeContent: content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<code>.*?<\/code>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g, "") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0, 150) + '...'
+    }
+    return content
+  },
+
+  generateHtml: (array, ele) => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class="aside-list-item">'
+
+        if (true && array[i].avatar) {
+          const imgAttr = 'data-lazy-src'
+          const lazyloadNative = ''
+          result += `<a href="${array[i].url}" class="thumbnail"><img ${imgAttr}="${array[i].avatar}" alt="${array[i].nick}" ${lazyloadNative}></a>`
+        }
+
+        result += `<div class="content">
+        <a class="comment" href="${array[i].url}" title="${array[i].content}">${array[i].content}</a>
+        <div class="name"><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '暂无评论'
+    }
+
+    ele.innerHTML = result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh(ele)
+  },
+
+  newestCommentInit: (name, getComment) => {
+    const $dom = document.querySelector('#card-newest-comments .aside-list')
+    if ($dom) {
+      const data = btf.saveToLocal.get(name)
+      if (data) {
+        newestComments.generateHtml(JSON.parse(data), $dom)
+      } else {
+        getComment($dom)
+      }
+    }
+  },
+
+  run: (name, getComment) => {
+    newestComments.newestCommentInit(name, getComment)
+    btf.addGlobalFn('pjaxComplete', () => newestComments.newestCommentInit(name, getComment), name)
+  }
+}</script><script>window.addEventListener('load', () => {
+  const keyName = 'twikoo-newest-comments'
+  const { changeContent, generateHtml, run } = window.newestComments
+
+  const getComment = ele => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://tw.sunboy.ltd',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(res => {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        btf.saveToLocal.set(keyName, JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray, ele)
+      }).catch(err => {
+        console.error(err)
+        ele.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      btf.getScript('https://cdn.jsdmirror.com/npm/twikoo@1.6.44/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  run(keyName, getComment)
+})</script><script defer src="https://live2dd.sunboy.ltd/jsdelivr/random/autoloadnew.js"></script><script defer src="https://cdn.jsdmirror.com/npm/sunboylive@1.0.5/autoload.js"></script><script defer src="/js/showbb_in_index.js"></script><script defer src="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script defer src="https://fastly.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><script defer src="https://cdn.jsdmirror.com/npm/smoothscroll-for-websites@latest/SmoothScroll.min.js"></script><link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdmirror.com/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdmirror.com/npm/butterfly-extsrc@1.1.4/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdmirror.com/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax","#web-bg"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script defer async data-pjax src="https://jsd.onmicrosoft.cn/npm/penndu@17.0.0/bsz.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.4.3"></script></div></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
