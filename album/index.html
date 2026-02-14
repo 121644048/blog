@@ -1,0 +1,1755 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>相册 | Sun Boy's Blog</title><meta name="author" content="Sun Boy"><meta name="copyright" content="Sun Boy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="相册">
+<meta property="og:url" content="https://www.sunboy.ltd/album/index.html">
+<meta property="og:site_name" content="Sun Boy&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.sunboy.ltd/img/about.jpg">
+<meta property="article:published_time" content="2025-08-26T14:54:10.000Z">
+<meta property="article:modified_time" content="2026-02-14T12:05:01.367Z">
+<meta property="article:author" content="Sun Boy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.sunboy.ltd/img/about.jpg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.sunboy.ltd/album/index.html"><link rel="preconnect" href="https://cdn.jsdmirror.com"/><link rel="stylesheet" href="/css/index.css?v=5.4.3"><link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/@fancyapps/ui@6.0.17/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":400,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdmirror.com/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '相册',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="https://live2d.sunboy.ltd/css/left.css"><link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/aplayer@1.10.1/dist/APlayer.min.css" media="all" onload="this.media=&quot;all&quot;"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Sun Boy's Blog" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="Sun Boy's Blog" type="application/rss+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="svg"></div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+    const svg= document.querySelector(".svg")
+    svg.innerHTML=`<div class="loading"><svg t="1757083249298" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1389" width="128" height="128"><path class="path" d="M114.294312 490.542655l236.669689 143.235961a35.590833 35.590833 0 1 1-36.899777 60.959431L17.370064 515.163283a35.590833 35.590833 0 0 1 4.799464-63.390327l926.047296-386.699699a35.590833 35.590833 0 0 1 48.617951 39.517667l-162.184497 854.803299a35.590833 35.590833 0 0 1-54.040722 23.436346L479.863901 792.223271a35.653164 35.653164 0 0 1 38.084061-60.211462l256.490855 162.683142L914.620574 156.32541 114.294312 490.480324z" p-id="1390" fill="rgba(81, 81, 81, 0)"></path><path class="path" d="M392.039937 694.613385v293.764617a35.590833 35.590833 0 1 1-71.243997 0v-310.095262c0-10.409228 4.550142-20.31981 12.466141-27.113857L766.273494 280.488176a35.590833 35.590833 0 1 1 46.311715 54.165383l-420.482942 359.959826z" p-id="1391" fill="rgba(81, 81, 81, 0)"></path></svg></div>`
+    let plist = document.querySelectorAll(".path")
+    plist.forEach(p => {
+       const length = p.getTotalLength()
+       p.style.setProperty("--length", length)
+     })
+
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div id="web-bg"><div id="default-bg" style="background:url(https://image.sunboy.ltd/img.jpg);"></div><div id="dark-bg" style="background:url(https://image.sunboy.ltd/img.jpg);"></div><div id="mobile-bg" style="background:url(https://image.sunboy.ltd/img.jpg);"></div><div id="mobile-dark-bg" style="background:url(https://image.sunboy.ltd/img.jpg);"></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/about.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">40</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-home"></i><span> 站点</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://home.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 个人主页</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://picprose.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 封面制作</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://icon.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 图标制作</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://openlist.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> openlist</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://echo.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> ech0</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cfbed.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> CFTG图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://biliapi1.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 链接转换</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 休闲</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/bibi/"><i class="fa-fw far fa-meh-rolling-eyes"></i><span> 哔哔</span></a></li><li><a class="site-page child" href="/album/"><i class="fa-fw far fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-laptop"></i><span> 装备</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user-friends"></i><span> 朋友</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i><span> 圈子</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page type-album" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Sun Boy's Blog</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-home"></i><span> 站点</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://home.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 个人主页</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://picprose.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 封面制作</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://icon.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 图标制作</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://openlist.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> openlist</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://echo.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> ech0</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://cfbed.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> CFTG图床</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://biliapi1.sunboy.ltd/"><i class="fa-fw fas fa-chevron-circle-right"></i><span> 链接转换</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-book"></i><span> 文档</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 休闲</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/bibi/"><i class="fa-fw far fa-meh-rolling-eyes"></i><span> 哔哔</span></a></li><li><a class="site-page child" href="/album/"><i class="fa-fw far fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw fa-solid fa-laptop"></i><span> 装备</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user-friends"></i><span> 朋友</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fa fa-puzzle-piece"></i><span> 圈子</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">相册</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><!-- 2. 相册核心HTML结构--><div class="div sb-album-container"><!-- 相册头部（筛选栏 + 加载指示器）--><div class="sb-album-header"><!-- 文件夹筛选标签区--><div class="sb-tag-section"><div class="sb-tag-filters sb-folder-tags"><button class="sb-tag-filter sb-active" data-folder="latest">最新</button><!-- 文件夹标签将通过JavaScript动态加载--></div></div><!-- 加载状态指示器--><div class="sb-loading-indicator"><i class="fas fa-spinner fa-spin"></i><span>正在加载图片和文件夹...</span></div></div><!-- 图片画廊容器（图片动态加载）--><div class="sb-album-gallery" id="sbAlbumGallery"><!-- 图片将通过JavaScript动态加载到这里--></div><!-- 分页控件--><div class="sb-pagination" id="sbPagination"><button class="sb-pagination-btn" id="sbPrevPage" disabled>上一页</button><div class="sb-page-info" id="sbPageInfo">第 1 页 / 共 1 页</div><button class="sb-pagination-btn" id="sbNextPage" disabled>下一页</button></div><!-- 图片预览模态框--><div class="sb-modal sb-album-modal" id="sbImageModal"><span class="sb-close-btn">&times;</span><!-- 图片导航按钮（上一张/下一张）--><button class="sb-nav-btn sb-prev-img-btn" aria-label="上一张"><i class="fas fa-chevron-left"></i></button><button class="sb-nav-btn sb-next-img-btn" aria-label="下一张"><i class="fas fa-chevron-right"></i></button><!-- 图片缩放控制按钮--><div class="sb-zoom-controls"><button class="sb-zoom-btn sb-zoom-in" aria-label="放大"><i class="fas fa-search-plus"></i></button><button class="sb-zoom-btn sb-zoom-out" aria-label="缩小"><i class="fas fa-search-minus"></i></button><button class="sb-zoom-btn sb-zoom-reset" aria-label="重置缩放"><i class="fas fa-compress-arrows-alt"></i></button></div><!-- 预览图片容器--><div class="sb-modal-image-container"><img class="sb-modal-content sb-album-modal-img" id="sbModalImage"></div></div></div><!-- 3. 相册完整CSS样式（确保与原效果一致）--><style>/* 变量定义 - 可根据主题调整 */
+//- :root {
+//-   --btn-bg: #e2e8f0;
+//-   --btn-color: #4a5568;
+//-   --btn-hover-color: #38b2ac;
+//- }
+
+/* 相册容器样式 - 强制隔离，避免与主题样式冲突 */
+.sb-album-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  overflow: visible !important;
+  isolation: isolate; /* 关键：样式完全隔离 */
+  min-height: 0; /* 不影响父容器高度计算 */
+  box-sizing: border-box; /* 确保padding不溢出 */
+  position: relative; /* 建立独立的z-index上下文 */
+  z-index: 1; /* 低于页脚z-index */
+}
+
+/* 图片加载淡入动画 */
+@keyframes sbFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 相册头部样式 */
+.sb-album-container .sb-album-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sb-album-container .sb-album-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.sb-album-container .sb-album-header p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* 文件夹筛选标签样式 */
+.sb-album-container .sb-tag-section {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+.sb-album-container .sb-tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  justify-content: center;
+}
+
+.sb-album-container .sb-tag-filter {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  text-align: center;;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sb-album-container .sb-tag-filter:hover {
+  background-color: var(--btn-hover-color);
+}
+
+.sb-album-container .sb-tag-filter.sb-active {
+  background-color: var(--btn-hover-color);
+  color: white;
+}
+
+/* 加载指示器样式 */
+.sb-album-container .sb-loading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #666;
+  padding: 2rem;
+}
+
+/* 瀑布流核心布局 */
+.sb-album-container .sb-album-gallery {
+  display: block;
+  column-width: 250px; /* 基础列宽 */
+  column-gap: 1.5rem; /* 列之间的间距 */
+  margin-bottom: 2rem;
+  orphans: 1; /* 防止单个卡片被分割到下一列顶部 */
+  widows: 1; /* 防止单个卡片被分割到上一列底部 */
+}
+
+/* 瀑布流卡片样式 */
+.sb-album-container .sb-album-item {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  break-inside: avoid; /* 关键：禁止卡片被列分割 */
+  margin-bottom: 1.5rem; /* 卡片底部间距 */
+  display: inline-block;
+  width: 100%; /* 确保卡片占满列宽 */
+}
+
+/* 图片项加载/加载完成状态 */
+.sb-album-container .sb-album-item-loading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sb-album-container .sb-album-item-loaded {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sb-album-container .sb-album-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 图片容器：自适应高度 */
+.sb-album-container .sb-image-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 图片样式：自适应高度，保持比例 */
+.sb-album-container .sb-album-img {
+  width: 100%;
+  height: auto; /* 高度随图片比例自适应 */
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: none !important; /* 防止主题滤镜影响 */
+  display: block; /* 清除图片下方空白间隙 */
+}
+
+/* 图片加载/加载完成动画 */
+.sb-album-container .sb-album-img-loading {
+  opacity: 0;
+}
+
+.sb-album-container .sb-album-img-loaded {
+  animation: sbFadeIn 0.5s ease forwards;
+}
+
+.sb-album-container .sb-album-item:hover .sb-image-wrapper .sb-album-img {
+  transform: scale(1.05);
+}
+
+/* 图片hover遮罩层 */
+.sb-album-container .sb-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 0.8rem;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sb-album-container .sb-album-item:hover .sb-image-overlay {
+  transform: translateY(0);
+}
+
+/* 图片信息标签样式 */
+.sb-album-container .sb-image-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.sb-album-container .sb-folder-tag {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+  background-color: rgba(56, 178, 172, 0.7);
+}
+
+.sb-album-container .sb-date-tag {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+  background-color: rgba(100, 116, 139, 0.7);
+}
+
+/* 网格加载状态样式 */
+.sb-album-container .sb-grid-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #666;
+  padding: 4rem 2rem;
+  width: 100%; /* 跨所有列 */
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+/* 无图片提示样式 */
+.sb-album-container .sb-no-images {
+  width: 100%; /* 跨所有列 */
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #999;
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+.sb-album-container .sb-no-images i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* 分页控件样式 */
+.sb-album-container .sb-pagination {
+  display: none; /* 默认隐藏，有图片时分页显示 */
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.sb-album-container .sb-pagination-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--btn-bg);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sb-album-container .sb-pagination-btn:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.sb-album-container .sb-pagination-btn:hover:not(:disabled) {
+  background-color: var(--btn-hover-color);
+}
+
+.sb-album-container .sb-page-info {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* 预览模态框基础样式 */
+.sb-album-container .sb-album-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* 预览图片容器 */
+.sb-album-container .sb-modal-image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: auto; /* 缩放后可滚动查看完整图片 */
+}
+
+/* 预览图片样式 */
+.sb-album-container .sb-album-modal-img {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+  transition: transform 0.1s ease; /* 平滑缩放过渡 */
+  transform-origin: center center; /* 从中心缩放 */
+}
+
+/* 预览图片加载/加载完成动画 */
+.sb-album-container .sb-modal-img-loading {
+  opacity: 0;
+}
+
+.sb-album-container .sb-modal-img-loaded {
+  animation: sbFadeIn 0.3s ease forwards;
+}
+
+/* 关闭按钮样式 */
+.sb-album-container .sb-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.sb-album-container .sb-close-btn:hover {
+  color: #bbb;
+  transform: scale(1.1);
+}
+
+/* 预览页导航按钮样式 */
+.sb-album-container .sb-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  opacity: 0.7;
+}
+
+.sb-album-container .sb-nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.sb-album-container .sb-prev-img-btn {
+  left: 1rem;
+}
+
+.sb-album-container .sb-next-img-btn {
+  right: 1rem;
+}
+
+/* 导航按钮禁用状态 */
+.sb-album-container .sb-nav-btn.sb-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.sb-album-container .sb-nav-btn.sb-disabled:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translateY(-50%);
+}
+
+/* 缩放控制按钮样式 */
+.sb-album-container .sb-zoom-controls {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1001;
+}
+
+.sb-album-container .sb-zoom-btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.sb-album-container .sb-zoom-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* 响应式适配（移动端） */
+@media (max-width: 768px) {
+  .sb-album-container .sb-album-gallery {
+    column-width: 150px;
+    column-gap: 1rem;
+  }
+  
+  .sb-album-container .sb-album-item {
+    margin-bottom: 1rem;
+  }
+
+  .sb-album-container .sb-close-btn {
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .sb-album-container .sb-tag-filter {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .sb-album-container .sb-pagination {
+    gap: 0.5rem;
+  }
+
+  .sb-album-container .sb-pagination-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  /* 移动端缩小导航按钮 */
+  .sb-album-container .sb-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  /* 移动端缩小缩放按钮 */
+  .sb-album-container .sb-zoom-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* 平板端适配 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sb-album-container .sb-album-gallery {
+    column-width: 200px;
+  }
+}
+
+/* 模态框打开时禁止页面滚动 */
+body.sb-modal-open {
+  overflow: hidden !important;
+}
+
+
+</style><!-- 4. 相册完整JavaScript逻辑（关联主题配置中的私密信息）--><script>// 直接在这里定义配置（替换为你的实际信息）
+const SB_ALBUM_CONFIG = {
+  COS_SCRIPT_URL: "https://cdn.jsdmirror.com/npm/cos-js-sdk-v5@1.4.5/dist/cos-js-sdk-v5.min.js",
+  RETRY: {
+    MAX_COUNT: 10,
+    INTERVAL: 1000,
+    INIT_TIMEOUT: 20000
+  },
+  // 直接硬编码配置（替换为你的实际值）
+  IMAGES_PER_PAGE: 20,
+  ZOOM: {
+    MIN: 0.1,
+    MAX: 5,
+    STEP: 0.1,
+    DEFAULT: 1
+  },
+  ANIMATION: {
+    FADE_IN_DELAY: 80,
+    FADE_IN_DURATION: 500
+  }
+};
+
+const sbAlbum = {
+  // 关键：从主题配置获取COS私密信息（避免硬编码）
+  cosConfig: {
+    Bucket: 'picture-1304304669',       // COS Bucket（主题配置）
+    Region: 'ap-nanjing',       // COS地域（主题配置）
+    RootFolder: 'gallery/', // COS根文件夹（主题配置）
+    CdnDomain: 'https://image.sunboy.ltd', // CDN域名（主题配置）
+    SecretId: 'AKIDbEfuYBumVe2IhGrQwz2ymS0iR1Z1Tmsn',   // 私密SecretId（主题配置）
+    SecretKey: '89PYVHrDUYYO1SkofNsFQRGrFQSJao14'  // 私密SecretKey（主题配置）
+  },
+
+  // 加载状态管理
+  loadState: {
+    isCosLoaded: false,
+    isAlbumInit: false,
+    isLoading: false,
+    retryCount: 0,
+    initTimeout: null
+  },
+
+  // 核心数据存储
+  cos: null,
+  allImages: [],         // 所有图片（按时间排序）
+  filteredImages: [],    // 当前筛选后的图片
+  allFolders: new Set(), // 所有文件夹
+  currentFolder: 'latest', // 当前选中文件夹（默认"最新"）
+  currentPage: 1,        // 当前页码
+  totalPages: 1,         // 总页数
+  loadedImageKeys: new Set(), // 已加载的图片Key（避免重复）
+
+  // 预览相关状态
+  currentPreviewIndex: -1,    // 当前预览图片的索引
+  currentZoomLevel: SB_ALBUM_CONFIG.ZOOM.DEFAULT, // 当前缩放级别
+
+  // DOM元素缓存
+  elements: {},
+
+  // 初始化入口
+  init() {
+    if (this.loadState.isAlbumInit || this.loadState.isLoading) return;
+    this.resetState();
+
+    // 获取相册容器（确保DOM已加载）
+    this.elements.container = document.querySelector('.sb-album-container');
+    if (!this.elements.container) {
+      console.warn("未找到相册容器，100ms后重试");
+      setTimeout(() => this.init(), 100);
+      return;
+    }
+
+    // 缓存所有需要操作的DOM元素
+    this.elements.gallery = this.elements.container.querySelector('#sbAlbumGallery');
+    this.elements.loadingIndicator = this.elements.container.querySelector('.sb-loading-indicator');
+    this.elements.folderTagFilters = this.elements.container.querySelector('.sb-folder-tags');
+    this.elements.modal = this.elements.container.querySelector('#sbImageModal');
+    this.elements.modalImage = this.elements.container.querySelector('#sbModalImage');
+    this.elements.modalImageContainer = this.elements.container.querySelector('.sb-modal-image-container');
+    this.elements.closeBtn = this.elements.container.querySelector('.sb-close-btn');
+    this.elements.pagination = this.elements.container.querySelector('#sbPagination');
+    this.elements.prevPageBtn = this.elements.container.querySelector('#sbPrevPage');
+    this.elements.nextPageBtn = this.elements.container.querySelector('#sbNextPage');
+    this.elements.pageInfo = this.elements.container.querySelector('#sbPageInfo');
+    this.elements.prevImgBtn = this.elements.container.querySelector('.sb-prev-img-btn');
+    this.elements.nextImgBtn = this.elements.container.querySelector('.sb-next-img-btn');
+    this.elements.zoomInBtn = this.elements.container.querySelector('.sb-zoom-in');
+    this.elements.zoomOutBtn = this.elements.container.querySelector('.sb-zoom-out');
+    this.elements.zoomResetBtn = this.elements.container.querySelector('.sb-zoom-reset');
+
+    // 绑定所有事件
+    this.bindEvents();
+    // 启动加载流程
+    this.startLoadingProcess();
+    // 标记初始化完成
+    this.loadState.isAlbumInit = true;
+  },
+
+  // 启动加载流程（加载COS SDK + 初始化COS）
+  startLoadingProcess() {
+    this.loadState.isLoading = true;
+    this.updateLoadingIndicator('<i class="fas fa-spinner fa-spin"></i><span>正在加载资源...</span>');
+
+    // 若COS已加载，直接初始化；否则加载SDK
+    if (window.COS) {
+      this.loadState.isCosLoaded = true;
+      this.initializeCosAndLoadImages();
+      return;
+    }
+
+    // 加载COS SDK（带重试机制）
+    this.loadCosSdk()
+      .then(() => this.initializeCosAndLoadImages())
+      .catch(err => {
+        console.error('COS SDK加载失败:', err);
+        this.retryLoadCosSdk();
+      });
+  },
+
+  // 初始化COS客户端并加载图片/文件夹
+  initializeCosAndLoadImages() {
+    try {
+      // 初始化COS客户端
+      this.cos = new COS({
+        SecretId: this.cosConfig.SecretId,
+        SecretKey: this.cosConfig.SecretKey
+      });
+
+      // 更新加载状态
+      this.updateLoadingIndicator('<i class="fas fa-spinner fa-spin"></i><span>正在加载图片和文件夹...</span>');
+
+      // 加载COS中的图片和文件夹
+      this.getCosImagesAndFolders()
+        .then(() => this.loadState.isLoading = false)
+        .catch(err => {
+          console.error('加载图片失败:', err);
+          this.loadState.isLoading = false;
+          this.updateLoadingIndicator('<i class="fas fa-exclamation-triangle text-red-500"></i><span>加载图片失败，请重试</span>');
+        });
+    } catch (err) {
+      console.error('初始化COS失败:', err);
+      this.loadState.isLoading = false;
+      this.updateLoadingIndicator('<i class="fas fa-exclamation-triangle text-red-500"></i><span>初始化失败，请重试</span>');
+    }
+  },
+
+  // 加载COS SDK（Promise封装）
+  loadCosSdk() {
+    return new Promise((resolve, reject) => {
+      // 清除已有超时器
+      if (this.loadState.initTimeout) clearTimeout(this.loadState.initTimeout);
+
+      // 设置加载超时
+      this.loadState.initTimeout = setTimeout(() => {
+        reject(new Error(`COS SDK加载超时`));
+      }, SB_ALBUM_CONFIG.RETRY.INIT_TIMEOUT);
+
+      // 检查SDK是否已加载
+      let cosScript = document.querySelector(`script[src="${SB_ALBUM_CONFIG.COS_SCRIPT_URL}"]`);
+      if (cosScript) {
+        // 轮询检查SDK是否就绪
+        const checkLoaded = () => {
+          if (window.COS) {
+            clearTimeout(this.loadState.initTimeout);
+            this.loadState.isCosLoaded = true;
+            resolve();
+          } else {
+            setTimeout(checkLoaded, 100);
+          }
+        };
+        checkLoaded();
+        return;
+      }
+
+      // 动态创建SDK脚本
+      cosScript = document.createElement("script");
+      cosScript.src = SB_ALBUM_CONFIG.COS_SCRIPT_URL;
+      cosScript.type = "text/javascript";
+
+      // 加载成功回调
+      cosScript.onload = () => {
+        clearTimeout(this.loadState.initTimeout);
+        this.loadState.isCosLoaded = true;
+        resolve();
+      };
+
+      // 加载失败回调
+      cosScript.onerror = (err) => {
+        clearTimeout(this.loadState.initTimeout);
+        reject(new Error(`COS SDK加载失败: ${err.message}`));
+      };
+
+      // 插入脚本到头部
+      document.head.appendChild(cosScript);
+    });
+  },
+
+  // 重试加载COS SDK（带次数限制）
+  retryLoadCosSdk() {
+    if (this.loadState.retryCount >= SB_ALBUM_CONFIG.RETRY.MAX_COUNT) {
+      this.loadState.isLoading = false;
+      this.updateLoadingIndicator(`
+        <i class="fas fa-exclamation-triangle text-red-500"></i>
+        <span>无法加载必要组件，请检查网络后刷新页面</span>
+      `);
+      return;
+    }
+
+    // 增加重试次数并更新状态
+    this.loadState.retryCount++;
+    this.updateLoadingIndicator(`
+      <i class="fas fa-spinner fa-spin"></i>
+      <span>正在重试加载（${this.loadState.retryCount}/${SB_ALBUM_CONFIG.RETRY.MAX_COUNT}）...</span>
+    `);
+
+    // 延迟重试
+    setTimeout(() => {
+      this.loadCosSdk()
+        .then(() => this.initializeCosAndLoadImages())
+        .catch(() => this.retryLoadCosSdk());
+    }, SB_ALBUM_CONFIG.RETRY.INTERVAL);
+  },
+
+  // 从COS获取图片和文件夹列表
+  async getCosImagesAndFolders() {
+    try {
+      // 调用COS API获取文件列表
+      const listResult = await new Promise((resolve, reject) => {
+        this.cos.getBucket({
+          Bucket: this.cosConfig.Bucket,
+          Region: this.cosConfig.Region,
+          Prefix: this.cosConfig.RootFolder,
+          MaxKeys: 1000 // 单次最大获取数量（可根据需求调整）
+        }, (err, data) => err ? reject(err) : resolve(data));
+      });
+
+      // 提取图片和文件夹信息
+      const imageItems = [];
+      const rootLength = this.cosConfig.RootFolder.length;
+
+      // 遍历COS返回的文件列表
+      listResult.Contents.forEach(item => {
+        // 跳过已加载的图片（避免重复）
+        if (this.loadedImageKeys.has(item.Key)) return;
+
+        // 检查是否为图片文件（通过后缀名判断）
+        const ext = item.Key.split('.').pop()?.toLowerCase();
+        const isImage = ext && ['jpg', 'jpeg', 'png', 'gif', 'webp', 'avif'].includes(ext);
+
+        if (isImage) {
+          // 提取文件夹名称（若有）
+          const pathWithoutRoot = item.Key.substring(rootLength);
+          const folderSeparatorIndex = pathWithoutRoot.indexOf('/');
+          let folder = '未分类'; // 默认文件夹
+
+          // 若存在文件夹分隔符，提取文件夹名
+          if (folderSeparatorIndex > 0) {
+            folder = pathWithoutRoot.substring(0, folderSeparatorIndex);
+          }
+
+          // 存储图片信息
+          imageItems.push({
+            key: item.Key,
+            url: `${this.cosConfig.CdnDomain}/${item.Key}`, // 图片CDN链接
+            name: item.Key.split('/').pop().split('.').slice(0, -1).join('.'), // 图片名称（不含后缀）
+            folder: folder, // 所属文件夹
+            lastModified: new Date(item.LastModified) // 最后修改时间（用于排序）
+          });
+
+          // 记录文件夹和已加载图片
+          this.allFolders.add(folder);
+          this.loadedImageKeys.add(item.Key);
+        }
+      });
+
+      // 处理无图片场景
+      if (imageItems.length === 0) {
+        this.updateLoadingIndicator('<i class="fas fa-image text-gray-400"></i><span>未找到图片</span>');
+        this.updatePagination(0); // 隐藏分页
+        return;
+      }
+
+      // 按修改时间排序（最新在前）
+      this.allImages = imageItems.sort((a, b) => b.lastModified - a.lastModified);
+
+      // 隐藏加载指示器
+      if (this.elements.loadingIndicator) {
+        this.elements.loadingIndicator.style.display = 'none';
+      }
+
+      // 渲染文件夹筛选标签、筛选图片、更新分页、显示图片
+      this.displayFolderTagFilters();
+      this.filterImages();
+      this.updatePagination(this.filteredImages.length);
+      this.displayCurrentPageImages();
+    } catch (err) {
+      console.error('获取图片列表失败:', err);
+      throw err;
+    }
+  },
+
+  // 渲染文件夹筛选标签
+  displayFolderTagFilters() {
+    if (!this.elements.folderTagFilters) return;
+
+    // 清除现有标签（保留"最新"标签）
+    Array.from(this.elements.folderTagFilters.children).forEach(child => {
+      if (child.dataset.folder !== 'latest') child.remove();
+    });
+
+    // 为每个文件夹创建筛选标签
+    Array.from(this.allFolders).forEach(folder => {
+      const tagBtn = document.createElement('button');
+      tagBtn.className = 'sb-tag-filter';
+      tagBtn.dataset.folder = folder;
+      tagBtn.textContent = folder;
+      // 绑定筛选事件
+      tagBtn.addEventListener('click', () => this.handleFolderTagClick(folder));
+      this.elements.folderTagFilters.appendChild(tagBtn);
+    });
+  },
+
+  // 文件夹筛选标签点击事件
+  handleFolderTagClick(folder) {
+    this.currentFolder = folder;
+    this.currentPage = 1; // 切换文件夹时重置到第一页
+
+    // 显示加载状态
+    this.elements.gallery.innerHTML = `
+      <div class="sb-grid-loading">
+        <i class="fas fa-spinner fa-spin text-gray-400"></i>
+        <span>正在加载${folder}分类的图片...</span>
+      </div>
+    `;
+
+    // 更新筛选标签活跃状态
+    this.elements.container.querySelectorAll('.sb-folder-tags .sb-tag-filter').forEach(btn => {
+      btn.classList.remove('sb-active');
+    });
+    this.elements.container.querySelector(`.sb-folder-tags .sb-tag-filter[data-folder="${folder}"]`)?.classList.add('sb-active');
+
+    // 延迟处理（确保加载状态显示）
+    setTimeout(() => {
+      this.filterImages();
+      this.updatePagination(this.filteredImages.length);
+      this.displayCurrentPageImages();
+    }, 300);
+  },
+
+  // 筛选当前文件夹的图片
+  filterImages() {
+    if (this.currentFolder === 'latest') {
+      // "最新"分类：显示所有图片
+      this.filteredImages = [...this.allImages];
+    } else {
+      // 特定文件夹：筛选对应图片
+      this.filteredImages = this.allImages.filter(image => image.folder === this.currentFolder);
+    }
+  },
+
+  // 更新分页信息（总页数、按钮状态）
+  updatePagination(totalItems) {
+    if (!this.elements.pagination) return;
+
+    // 计算总页数
+    this.totalPages = Math.max(1, Math.ceil(totalItems / SB_ALBUM_CONFIG.IMAGES_PER_PAGE));
+
+    // 更新页码文本
+    this.elements.pageInfo.textContent = `第 ${this.currentPage} 页 / 共 ${this.totalPages} 页`;
+
+    // 更新分页按钮禁用状态
+    this.elements.prevPageBtn.disabled = this.currentPage <= 1;
+    this.elements.nextPageBtn.disabled = this.currentPage >= this.totalPages;
+
+    // 只有一页时隐藏分页
+    this.elements.pagination.style.display = this.totalPages <= 1 ? 'none' : 'flex';
+  },
+
+  // 显示当前页的图片（带逐张淡入动画）
+  displayCurrentPageImages() {
+    if (!this.elements.gallery) return;
+    this.elements.gallery.innerHTML = '';
+
+    // 计算当前页图片的索引范围
+    const startIndex = (this.currentPage - 1) * SB_ALBUM_CONFIG.IMAGES_PER_PAGE;
+    const endIndex = startIndex + SB_ALBUM_CONFIG.IMAGES_PER_PAGE;
+    const currentPageImages = this.filteredImages.slice(startIndex, endIndex);
+
+    // 处理当前页无图片场景
+    if (currentPageImages.length === 0) {
+      const message = this.filteredImages.length === 0
+        ? '暂无图片'
+        : `在"${this.currentFolder}"中没有更多图片`;
+
+      this.elements.gallery.innerHTML = `
+        <div class="sb-no-images">
+          <i class="fas fa-search text-gray-300"></i>
+          <p>${message}</p>
+        </div>
+      `;
+      return;
+    }
+
+    // 批量创建图片元素（用DocumentFragment优化性能）
+    const fragment = document.createDocumentFragment();
+
+    currentPageImages.forEach((image, index) => {
+      // 创建图片项容器
+      const imageCard = document.createElement('div');
+      imageCard.className = 'sb-album-item sb-album-item-loading'; // 初始加载状态
+      imageCard.dataset.folder = image.folder;
+      imageCard.dataset.imageKey = image.key;
+      imageCard.dataset.index = startIndex + index; // 记录在筛选列表中的索引
+
+      // 格式化日期显示（YYYY-MM-DD）
+      const formattedDate = this.formatDate(image.lastModified);
+
+      // 图片项HTML结构
+      imageCard.innerHTML = `
+        <div class="sb-image-wrapper">
+          <!-- 占位图（避免布局抖动） -->
+          <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f3f4f6'/%3E%3C/svg%3E"
+               data-src="${image.url}"
+               alt="${image.name}"
+               class="lazyload sb-album-img sb-album-img-loading">
+          <!-- 图片hover遮罩 -->
+          <div class="sb-image-overlay">
+            <div class="sb-image-info">
+              <span class="sb-folder-tag">${image.folder}</span>
+              <span class="sb-date-tag">${formattedDate}</span>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // 绑定预览事件
+      imageCard.addEventListener('click', () => {
+        const imageIndex = parseInt(imageCard.dataset.index);
+        this.openImageModal(image.url, imageIndex);
+      });
+
+      fragment.appendChild(imageCard);
+    });
+
+    // 批量插入图片项
+    this.elements.gallery.appendChild(fragment);
+    // 初始化懒加载
+    this.initThemeLazyLoad();
+
+    // 逐张显示图片（添加淡入动画）
+    const imageItems = this.elements.gallery.querySelectorAll('.sb-album-item');
+    imageItems.forEach((item, index) => {
+      setTimeout(() => {
+        // 移除加载状态，添加加载完成状态
+        item.classList.remove('sb-album-item-loading');
+        item.classList.add('sb-album-item-loaded');
+
+        // 图片加载完成后添加淡入动画
+        const img = item.querySelector('.sb-album-img');
+        if (img.complete) {
+          img.classList.remove('sb-album-img-loading');
+          img.classList.add('sb-album-img-loaded');
+        } else {
+          img.addEventListener('load', () => {
+            img.classList.remove('sb-album-img-loading');
+            img.classList.add('sb-album-img-loaded');
+          });
+        }
+      }, index * SB_ALBUM_CONFIG.ANIMATION.FADE_IN_DELAY);
+    });
+
+    // 滚动到相册顶部（提升体验）
+    window.scrollTo({ top: this.elements.container.offsetTop - 20, behavior: 'smooth' });
+  },
+
+  // 上一页
+  prevPage() {
+    if (this.currentPage > 1) {
+      // 显示加载状态
+      this.elements.gallery.innerHTML = `
+        <div class="sb-grid-loading">
+          <i class="fas fa-spinner fa-spin text-gray-400"></i>
+          <span>正在加载上一页图片...</span>
+        </div>
+      `;
+
+      // 更新页码
+      this.currentPage--;
+      // 更新分页信息
+      this.updatePagination(this.filteredImages.length);
+
+      // 延迟加载（确保加载状态显示）
+      setTimeout(() => {
+        this.displayCurrentPageImages();
+      }, 300);
+    }
+  },
+
+  // 下一页
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      // 显示加载状态
+      this.elements.gallery.innerHTML = `
+        <div class="sb-grid-loading">
+          <i class="fas fa-spinner fa-spin text-gray-400"></i>
+          <span>正在加载下一页图片...</span>
+        </div>
+      `;
+
+      // 更新页码
+      this.currentPage++;
+      // 更新分页信息
+      this.updatePagination(this.filteredImages.length);
+
+      // 延迟加载（确保加载状态显示）
+      setTimeout(() => {
+        this.displayCurrentPageImages();
+      }, 300);
+    }
+  },
+
+  // 格式化日期（YYYY-MM-DD）
+  formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  },
+
+  // 初始化懒加载（兼容主题自带懒加载）
+  initThemeLazyLoad() {
+    if (window.LazyLoad) {
+      // 若主题已加载LazyLoad，用主题的懒加载
+      new LazyLoad({
+        elements_selector: '.sb-album-container img.lazyload',
+        threshold: 300
+      });
+    } else if (window.lazyLoadInstance) {
+      // 若主题有懒加载实例，更新实例
+      window.lazyLoadInstance.update();
+    } else {
+      //  fallback：直接加载图片
+      setTimeout(() => {
+        document.querySelectorAll('.sb-album-container img.lazyload').forEach(img => {
+          if (img.dataset.src && img.src !== img.dataset.src) {
+            img.src = img.dataset.src;
+            img.classList.remove('lazyload');
+          }
+        });
+      }, 500);
+    }
+  },
+
+  // 打开图片预览模态框
+  openImageModal(url, index) {
+    if (!this.elements.modal || !this.elements.modalImage) return;
+
+    // 记录当前预览图片的索引
+    this.currentPreviewIndex = index;
+    // 重置缩放级别
+    this.currentZoomLevel = SB_ALBUM_CONFIG.ZOOM.DEFAULT;
+    this.updateImageZoom();
+
+    // 先设置透明占位图（避免布局抖动）
+    this.elements.modalImage.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1" height="1"%3E%3Crect width="1" height="1" fill="transparent"/%3E%3C/svg%3E';
+    this.elements.modalImage.classList.add('sb-modal-img-loading');
+
+    // 显示模态框
+    this.elements.modal.style.display = 'block';
+    // 禁止页面滚动
+    document.body.classList.add('sb-modal-open');
+
+    // 预加载图片（提升体验）
+    const img = new Image();
+    img.onload = () => {
+      this.elements.modalImage.src = url;
+      // 图片加载完成后添加淡入动画
+      setTimeout(() => {
+        this.elements.modalImage.classList.remove('sb-modal-img-loading');
+        this.elements.modalImage.classList.add('sb-modal-img-loaded');
+      }, 50);
+    };
+    img.src = url;
+
+    // 更新预览导航按钮状态
+    this.updateNavButtonsState();
+  },
+
+  // 关闭图片预览模态框
+  closeImageModal() {
+    if (!this.elements.modal) return;
+
+    // 隐藏模态框
+    this.elements.modal.style.display = 'none';
+    // 恢复页面滚动
+    document.body.classList.remove('sb-modal-open');
+    // 重置缩放和动画状态
+    this.currentZoomLevel = SB_ALBUM_CONFIG.ZOOM.DEFAULT;
+    this.updateImageZoom();
+    this.elements.modalImage.classList.remove('sb-modal-img-loaded');
+    this.elements.modalImage.classList.add('sb-modal-img-loading');
+  },
+
+  // 预览页：上一张图片
+  prevImage() {
+    if (this.currentPreviewIndex <= 0) return;
+
+    // 隐藏当前图片（过渡效果）
+    this.elements.modalImage.classList.remove('sb-modal-img-loaded');
+    this.elements.modalImage.classList.add('sb-modal-img-loading');
+
+    // 延迟加载下一张（确保过渡效果可见）
+    setTimeout(() => {
+      // 更新预览索引
+      this.currentPreviewIndex--;
+      const prevImage = this.filteredImages[this.currentPreviewIndex];
+
+      // 预加载上一张图片
+      const img = new Image();
+      img.onload = () => {
+        this.elements.modalImage.src = prevImage.url;
+        // 图片加载完成后显示
+        setTimeout(() => {
+          this.elements.modalImage.classList.remove('sb-modal-img-loading');
+          this.elements.modalImage.classList.add('sb-modal-img-loaded');
+        }, 50);
+      };
+      img.src = prevImage.url;
+
+      // 重置缩放
+      this.currentZoomLevel = SB_ALBUM_CONFIG.ZOOM.DEFAULT;
+      this.updateImageZoom();
+
+      // 更新导航按钮状态
+      this.updateNavButtonsState();
+    }, 200);
+  },
+
+  // 预览页：下一张图片
+  nextImage() {
+    if (this.currentPreviewIndex >= this.filteredImages.length - 1) return;
+
+    // 隐藏当前图片（过渡效果）
+    this.elements.modalImage.classList.remove('sb-modal-img-loaded');
+    this.elements.modalImage.classList.add('sb-modal-img-loading');
+
+    // 延迟加载下一张（确保过渡效果可见）
+    setTimeout(() => {
+      // 更新预览索引
+      this.currentPreviewIndex++;
+      const nextImage = this.filteredImages[this.currentPreviewIndex];
+
+      // 预加载下一张图片
+      const img = new Image();
+      img.onload = () => {
+        this.elements.modalImage.src = nextImage.url;
+        // 图片加载完成后显示
+        setTimeout(() => {
+          this.elements.modalImage.classList.remove('sb-modal-img-loading');
+          this.elements.modalImage.classList.add('sb-modal-img-loaded');
+        }, 50);
+      };
+      img.src = nextImage.url;
+
+      // 重置缩放
+      this.currentZoomLevel = SB_ALBUM_CONFIG.ZOOM.DEFAULT;
+      this.updateImageZoom();
+
+      // 更新导航按钮状态
+      this.updateNavButtonsState();
+    }, 200);
+  },
+
+  // 更新预览页导航按钮状态（禁用/启用）
+  updateNavButtonsState() {
+    // 第一页：禁用上一张
+    this.elements.prevImgBtn.disabled = this.currentPreviewIndex <= 0;
+    // 最后一页：禁用下一张
+    this.elements.nextImgBtn.disabled = this.currentPreviewIndex >= this.filteredImages.length - 1;
+
+    // 添加禁用视觉样式
+    if (this.currentPreviewIndex <= 0) {
+      this.elements.prevImgBtn.classList.add('sb-disabled');
+    } else {
+      this.elements.prevImgBtn.classList.remove('sb-disabled');
+    }
+
+    if (this.currentPreviewIndex >= this.filteredImages.length - 1) {
+      this.elements.nextImgBtn.classList.add('sb-disabled');
+    } else {
+      this.elements.nextImgBtn.classList.remove('sb-disabled');
+    }
+  },
+
+  // 图片放大
+  zoomIn() {
+    if (this.currentZoomLevel < SB_ALBUM_CONFIG.ZOOM.MAX) {
+      this.currentZoomLevel += SB_ALBUM_CONFIG.ZOOM.STEP;
+      this.updateImageZoom();
+    }
+  },
+
+  // 图片缩小
+  zoomOut() {
+    if (this.currentZoomLevel > SB_ALBUM_CONFIG.ZOOM.MIN) {
+      this.currentZoomLevel -= SB_ALBUM_CONFIG.ZOOM.STEP;
+      this.updateImageZoom();
+    }
+  },
+
+  // 重置图片缩放
+  resetZoom() {
+    this.currentZoomLevel = SB_ALBUM_CONFIG.ZOOM.DEFAULT;
+    this.updateImageZoom();
+  },
+
+  // 应用图片缩放（更新DOM样式）
+  updateImageZoom() {
+    if (this.elements.modalImage) {
+      this.elements.modalImage.style.transform = `scale(${this.currentZoomLevel})`;
+    }
+  },
+
+  // 绑定所有交互事件
+  bindEvents() {
+    // 分页按钮事件
+    if (this.elements.prevPageBtn) {
+      this.elements.prevPageBtn.addEventListener('click', () => this.prevPage());
+    }
+    if (this.elements.nextPageBtn) {
+      this.elements.nextPageBtn.addEventListener('click', () => this.nextPage());
+    }
+
+    // 预览页导航按钮事件
+    if (this.elements.prevImgBtn) {
+      this.elements.prevImgBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // 阻止事件冒泡
+        this.prevImage();
+      });
+    }
+    if (this.elements.nextImgBtn) {
+      this.elements.nextImgBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.nextImage();
+      });
+    }
+
+    // 缩放控制按钮事件
+    if (this.elements.zoomInBtn) {
+      this.elements.zoomInBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.zoomIn();
+      });
+    }
+    if (this.elements.zoomOutBtn) {
+      this.elements.zoomOutBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.zoomOut();
+      });
+    }
+    if (this.elements.zoomResetBtn) {
+      this.elements.zoomResetBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.resetZoom();
+      });
+    }
+
+    // 预览图片容器点击事件（关闭模态框）
+    if (this.elements.modalImageContainer) {
+      this.elements.modalImageContainer.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        this.closeImageModal();
+      });
+    }
+
+    // 模态框点击事件（点击背景关闭）
+    if (this.elements.modal) {
+      this.elements.modal.addEventListener('click', (e) => {
+        if (e.target === this.elements.modal) {
+          this.closeImageModal();
+        }
+      });
+
+      // 滚轮缩放事件
+      this.elements.modal.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // 滚轮向上：放大；向下：缩小
+        if (e.deltaY < 0) {
+          this.zoomIn();
+        } else {
+          this.zoomOut();
+        }
+      }, { passive: false });
+
+      // 键盘导航事件
+      this.elements.modal.addEventListener('keydown', (e) => {
+        switch (e.key) {
+          case 'ArrowLeft': // 左箭头：上一张
+            e.preventDefault();
+            this.prevImage();
+            break;
+          case 'ArrowRight': // 右箭头：下一张
+            e.preventDefault();
+            this.nextImage();
+            break;
+          case 'Escape': // ESC：关闭模态框
+            e.preventDefault();
+            this.closeImageModal();
+            break;
+          case '+': // 加号：放大
+          case '=':
+            e.preventDefault();
+            this.zoomIn();
+            break;
+          case '-': // 减号：缩小
+            e.preventDefault();
+            this.zoomOut();
+            break;
+          case '0': // 0：重置缩放
+            e.preventDefault();
+            this.resetZoom();
+            break;
+        }
+      });
+    }
+
+    // 关闭按钮事件
+    if (this.elements.closeBtn) {
+      this.elements.closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.closeImageModal();
+      });
+    }
+
+    // 预览图片加载失败处理
+    if (this.elements.modalImage) {
+      this.elements.modalImage.addEventListener('error', (e) => {
+        e.stopPropagation();
+        // 加载失败时显示占位图
+        this.elements.modalImage.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"%3E%3Crect width="300" height="200" fill="%23333"/%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23fff"%3E图片无法加载%3C/text%3E%3C/svg%3E';
+        this.elements.modalImage.classList.remove('sb-modal-img-loading');
+        this.elements.modalImage.classList.add('sb-modal-img-loaded');
+      });
+    }
+
+    // "最新"标签点击事件
+    if (this.elements.folderTagFilters) {
+      const latestBtn = this.elements.folderTagFilters.querySelector('.sb-tag-filter[data-folder="latest"]');
+      if (latestBtn) {
+        latestBtn.addEventListener('click', () => this.handleFolderTagClick('latest'));
+      }
+    }
+  },
+
+  // 重置相册状态（用于重新初始化）
+  resetState() {
+    this.allImages = [];
+    this.filteredImages = [];
+    this.allFolders.clear();
+    this.currentFolder = 'latest';
+    this.currentPage = 1;
+    this.totalPages = 1;
+    this.currentPreviewIndex = -1;
+    this.currentZoomLevel = SB_ALBUM_CONFIG.ZOOM.DEFAULT;
+    this.loadedImageKeys.clear();
+    this.elements = {};
+    this.cos = null;
+
+    // 重置加载状态
+    this.loadState = {
+      isCosLoaded: window.COS ? true : false,
+      isAlbumInit: false,
+      isLoading: false,
+      retryCount: 0,
+      initTimeout: null
+    };
+
+    // 恢复页面滚动
+    document.body.classList.remove('sb-modal-open');
+  },
+
+  // 更新加载指示器文本
+  updateLoadingIndicator(html) {
+    const loadingEl = this.elements.loadingIndicator || document.querySelector('.sb-album-container .sb-loading-indicator');
+    if (loadingEl) {
+      loadingEl.innerHTML = html;
+      loadingEl.style.display = 'flex';
+    }
+  },
+
+  // 销毁相册（释放资源）
+  destroy() {
+    this.resetState();
+    if (this.elements.modal) {
+      this.elements.modal.style.display = 'none';
+    }
+  }
+};
+
+// 相册初始化函数（兼容DOM加载和主题Pjax）
+function initSbAlbum() {
+  sbAlbum.destroy(); // 先销毁旧实例，避免重复
+
+  // 若DOM未加载完成，等待DOM加载
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => sbAlbum.init());
+  } else {
+    // DOM已加载，直接初始化
+    sbAlbum.init();
+  }
+}
+
+// 绑定初始化事件（覆盖DOM加载、主题Pjax等场景）
+document.addEventListener('DOMContentLoaded', initSbAlbum);
+document.addEventListener('page:loaded', initSbAlbum); // 主题页面加载事件
+document.addEventListener('pjax:complete', initSbAlbum); // 主题Pjax完成事件
+
+// 紧急初始化（防止上述事件未触发）
+setTimeout(() => {
+  if (!sbAlbum.loadState.isAlbumInit) {
+    console.log('执行紧急初始化');
+    initSbAlbum();
+  }
+}, 1000);</script></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2021 - 2026 By Sun Boy</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><img class="icp-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://beian.mps.gov.cn/img/logo01.dd7ff50e.png"><span>备案号：陇ICP备2021001091号-1 | 甘公网安备 62102702000139号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.4.3"></script><script src="/js/main.js?v=5.4.3"></script><script defer src="https://cdn.jsdmirror.com/npm/@fancyapps/ui@6.0.17/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdmirror.com/npm/instant.page@5.2.0/instantpage.min.js" type="module" defer></script><script defer src="https://cdn.jsdmirror.com/npm/vanilla-lazyload@19.1.3/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdmirror.com/npm/katex@0.16.22/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://cdn.jsdmirror.com/npm/katex@0.16.22/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script></div><script>window.newestComments = {
+  changeContent: content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<code>.*?<\/code>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g, "") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0, 150) + '...'
+    }
+    return content
+  },
+
+  generateHtml: (array, ele) => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class="aside-list-item">'
+
+        if (true && array[i].avatar) {
+          const imgAttr = 'data-lazy-src'
+          const lazyloadNative = ''
+          result += `<a href="${array[i].url}" class="thumbnail"><img ${imgAttr}="${array[i].avatar}" alt="${array[i].nick}" ${lazyloadNative}></a>`
+        }
+
+        result += `<div class="content">
+        <a class="comment" href="${array[i].url}" title="${array[i].content}">${array[i].content}</a>
+        <div class="name"><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '暂无评论'
+    }
+
+    ele.innerHTML = result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh(ele)
+  },
+
+  newestCommentInit: (name, getComment) => {
+    const $dom = document.querySelector('#card-newest-comments .aside-list')
+    if ($dom) {
+      const data = btf.saveToLocal.get(name)
+      if (data) {
+        newestComments.generateHtml(JSON.parse(data), $dom)
+      } else {
+        getComment($dom)
+      }
+    }
+  },
+
+  run: (name, getComment) => {
+    newestComments.newestCommentInit(name, getComment)
+    btf.addGlobalFn('pjaxComplete', () => newestComments.newestCommentInit(name, getComment), name)
+  }
+}</script><script>window.addEventListener('load', () => {
+  const keyName = 'twikoo-newest-comments'
+  const { changeContent, generateHtml, run } = window.newestComments
+
+  const getComment = ele => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://tw.sunboy.ltd',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(res => {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        btf.saveToLocal.set(keyName, JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray, ele)
+      }).catch(err => {
+        console.error(err)
+        ele.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      btf.getScript('https://cdn.jsdmirror.com/npm/twikoo@1.6.44/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  run(keyName, getComment)
+})</script><script defer src="https://live2d.sunboy.ltd/jsdelivr/random/autoloadnew.js"></script><script defer src="https://cdn.jsdmirror.com/npm/sunboylive@1.0.5/autoload.js"></script><script defer src="/js/showbb_in_index.js"></script><script defer src="https://cdn.jsdmirror.com/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script defer src="https://cdn.jsdmirror.com/npm/meting@2.0.1/dist/Meting.min.js"></script><script defer src="https://cdn.jsdmirror.com/npm/smoothscroll-for-websites@latest/SmoothScroll.min.js"></script><link rel="stylesheet" href="https://cdn.jsdmirror.com/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdmirror.com/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdmirror.com/npm/butterfly-extsrc@1.1.4/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdmirror.com/npm/pjax@0.2.8/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax","#web-bg"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script defer async data-pjax src="https://jsd.dusays.com/npm/penndu@17.0.0/bsz.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.4.3"></script></div></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
