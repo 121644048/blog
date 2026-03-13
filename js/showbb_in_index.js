@@ -1,0 +1,70 @@
+let talkTimer = null;
+const cacheKey = "talksCache"
+  , cacheTimeKey = "talksCacheTime"
+  , cacheDuration = 18e5;
+function indexTalk() {
+    if (talkTimer && (clearInterval(talkTimer),
+    talkTimer = null),
+    !document.getElementById("bber-talk"))
+        return;
+    function e(e) {
+        return e.map((e => {
+            let t = e.content || "";
+            const a = /\!\[.*?\]\(.*?\)/.test(t)
+              , i = /\[.*?\]\(.*?\)/.test(t);
+            t = t.replace(/#(.*?)\s/g, "").replace(/\{.*?\}/g, "").replace(/\!\[.*?\]\(.*?\)/g, '<i class="fa-solid fa-image"></i>').replace(/\[.*?\]\(.*?\)/g, '<i class="fa-solid fa-link"></i>');
+            const n = [];
+            return e.images?.length && !a && n.push("fa-solid fa-image"),
+            "VIDEO" === e.extension_type && n.push("fa-solid fa-video"),
+            "MUSIC" === e.extension_type && n.push("fa-solid fa-music"),
+            "WEBSITE" !== e.extension_type || i || n.push("fa-solid fa-link"),
+            "GITHUBPROJ" !== e.extension_type || i || n.push("fab fa-github"),
+            n.length && (t += " " + n.map((e => `<i class="${e}"></i>`)).join(" ")),
+            t
+        }
+        ))
+    }
+    function t(e) {
+        let t = "";
+        // 只为第一条添加内容，其余只作为轮播数据
+        t += `<li class="item item-1">${e[0]}</li>`;
+        let a = document.querySelector("#bber-talk .talk-list");
+        if (a) {
+            a.innerHTML = t;
+            let currentIndex = 0;
+            talkTimer = setInterval(() => {
+                currentIndex = (currentIndex + 1) % e.length;
+                a.innerHTML = `<li class="item item-1">${e[currentIndex]}</li>`;
+            }, 3000);
+        }
+    }
+    const a = localStorage.getItem(cacheKey)
+      , i = localStorage.getItem(cacheTimeKey)
+      , n = (new Date).getTime();
+    if (a && i && n - i < 18e5) {
+        t(e(JSON.parse(a)).slice(0, 6))
+    } else
+        fetch("https://echo.sunboy.ltd/api/echo/page", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                page: 1,
+                pageSize: 30
+            })
+        }).then((e => e.json())).then((a => {
+            if (1 === a.code && a.data && Array.isArray(a.data.items)) {
+                localStorage.setItem(cacheKey, JSON.stringify(a.data.items)),
+                localStorage.setItem(cacheTimeKey, n.toString());
+                t(e(a.data.items).slice(0, 6))
+            } else
+                console.warn("Unexpected API response format:", a)
+        }
+        )).catch((e => console.error("Error fetching data:", e)))
+}
+function whenDOMReady() {
+    indexTalk()
+}
+whenDOMReady(),
+document.addEventListener("pjax:complete", whenDOMReady);
